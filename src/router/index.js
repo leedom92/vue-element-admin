@@ -1,6 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+/* Layout */
+
+/* Router Modules */
+import tableRouter from './modules/table'
+import nestedRouter from './modules/nested'
+import Layout from '@/layout'
+
 const originalPush = Router.prototype.push
 Router.prototype.push = function push(location, onResolve, onReject) {
   if (onResolve || onReject) return originalPush.call(this, location, onResolve, onReject)
@@ -8,13 +15,6 @@ Router.prototype.push = function push(location, onResolve, onReject) {
 }
 
 Vue.use(Router)
-
-/* Layout */
-import Layout from '@/layout'
-
-/* Router Modules */
-import tableRouter from './modules/table'
-import nestedRouter from './modules/nested'
 
 /**
  * Note: sub-menu only appear when route children.length >= 1
@@ -50,29 +50,29 @@ export const constantRoutes = [
     children: [
       {
         path: '/redirect/:path(.*)',
-        component: () => import('@/views/redirect/index')
-      }
-    ]
+        component: () => import('@/views/redirect/index'),
+      },
+    ],
   },
   {
     path: '/login',
     component: () => import('@/views/login/index'),
-    hidden: true
+    hidden: true,
   },
   {
     path: '/auth-redirect',
     component: () => import('@/views/login/auth-redirect'),
-    hidden: true
+    hidden: true,
   },
   {
     path: '/404',
     component: () => import('@/views/error-page/404'),
-    hidden: true
+    hidden: true,
   },
   {
     path: '/401',
     component: () => import('@/views/error-page/401'),
-    hidden: true
+    hidden: true,
   },
   {
     path: '/',
@@ -83,9 +83,9 @@ export const constantRoutes = [
         path: 'dashboard',
         component: () => import('@/views/dashboard/index'),
         name: 'Dashboard',
-        meta: { title: 'Dashboard', icon: 'dashboard', affix: true }
-      }
-    ]
+        meta: { title: 'Dashboard', icon: 'dashboard', affix: true },
+      },
+    ],
   },
   {
     path: '/profile',
@@ -97,10 +97,10 @@ export const constantRoutes = [
         path: 'index',
         component: () => import('@/views/profile/index'),
         name: 'Profile',
-        meta: { title: 'Profile', icon: 'user', noCache: true }
-      }
-    ]
-  }
+        meta: { title: 'Profile', icon: 'user', noCache: true },
+      },
+    ],
+  },
 ]
 
 /**
@@ -116,9 +116,9 @@ export const asyncRoutes = [
         path: 'index',
         component: () => import('@/views/icons/index'),
         name: 'Icons',
-        meta: { title: 'Icons', icon: 'icon', noCache: true }
-      }
-    ]
+        meta: { title: 'Icons', icon: 'icon', noCache: true },
+      },
+    ],
   },
 
   {
@@ -130,7 +130,7 @@ export const asyncRoutes = [
     meta: {
       title: 'Permission',
       icon: 'lock',
-      roles: ['admin', 'editor'] // you can set roles in root nav
+      roles: ['admin', 'editor'], // you can set roles in root nav
     },
     children: [
       {
@@ -139,19 +139,19 @@ export const asyncRoutes = [
         name: 'PagePermission',
         meta: {
           title: 'Page Permission',
-          roles: ['admin'] // or you can only set roles in sub nav
-        }
+          roles: ['admin'], // or you can only set roles in sub nav
+        },
       },
       {
         path: 'directive',
         component: () => import('@/views/permission/directive'),
         name: 'DirectivePermission',
         meta: {
-          title: 'Directive Permission'
+          title: 'Directive Permission',
           // if do not set roles, means: this page does not require permission
-        }
-      }
-    ]
+        },
+      },
+    ],
   },
 
   /** when your routing map is too long, you can split it into small modules **/
@@ -164,19 +164,19 @@ export const asyncRoutes = [
     children: [
       {
         path: 'https://github.com/leedom92/vue-element-admin',
-        meta: { title: 'External Link', icon: 'link' }
-      }
-    ]
+        meta: { title: 'External Link', icon: 'link' },
+      },
+    ],
   },
 
   // 404 page must be placed at the end !!!
-  { path: '*', redirect: '/404', hidden: true }
+  { path: '*', redirect: '/404', hidden: true },
 ]
 
 const createRouter = () => new Router({
   // mode: 'history', // require service support
   scrollBehavior: () => ({ y: 0 }),
-  routes: constantRoutes
+  routes: constantRoutes,
 })
 
 const router = createRouter()

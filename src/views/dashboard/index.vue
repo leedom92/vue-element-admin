@@ -1,12 +1,3 @@
-<template>
-  <div class="dashboard-container">
-    <div class="text-center">
-      <div class="text-el-primary">Welcome to {{ title }}</div>
-      <div class="text-4xl pt-4 text-el-primary-3">{{ time }}</div>
-    </div>
-  </div>
-</template>
-
 <script>
 import { title } from '@/settings'
 
@@ -17,7 +8,7 @@ export default {
     return {
       title,
       time: new Date().toLocaleString(),
-      inter: null
+      inter: null,
     }
   },
   computed: {},
@@ -28,9 +19,22 @@ export default {
   },
   destroyed() {
     clearInterval(this.inter)
-  }
+  },
 }
 </script>
+
+<template>
+  <div class="dashboard-container">
+    <div class="text-center">
+      <div class="text-el-primary">
+        Welcome to {{ title }}
+      </div>
+      <div class="pt-4 text-4xl text-el-primary-3">
+        {{ time }}
+      </div>
+    </div>
+  </div>
+</template>
 
 <style lang="scss" scoped>
 .dashboard-container {

@@ -1,13 +1,14 @@
 // import variables from '@/styles/element-variables.scss'
 import defaultSettings from '@/settings'
+
 const { showSettings, tagsView, fixedHeader, sidebarLogo } = defaultSettings
 
 const state = {
   theme: '#1890ff',
-  showSettings: showSettings,
-  tagsView: tagsView,
-  fixedHeader: fixedHeader,
-  sidebarLogo: sidebarLogo
+  showSettings,
+  tagsView,
+  fixedHeader,
+  sidebarLogo,
 }
 
 const mutations = {
@@ -16,19 +17,18 @@ const mutations = {
     if (state.hasOwnProperty(key)) {
       state[key] = value
     }
-  }
+  },
 }
 
 const actions = {
   changeSetting({ commit }, data) {
     commit('CHANGE_SETTING', data)
-  }
+  },
 }
 
 export default {
   namespaced: true,
   state,
   mutations,
-  actions
+  actions,
 }
-

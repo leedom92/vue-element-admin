@@ -20,7 +20,7 @@ const modules = modulesFiles.keys().reduce((modules, modulePath) => {
 const store = new Vuex.Store({
   devtools: process.env.NODE_ENV === 'development',
   modules,
-  getters
+  getters,
 })
 
 export default store

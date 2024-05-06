@@ -1,9 +1,3 @@
-<template>
-  <el-scrollbar ref="scrollContainer" :vertical="false" class="scroll-container" @wheel.native.prevent="handleScroll">
-    <slot />
-  </el-scrollbar>
-</template>
-
 <script>
 const tagAndTagSpacing = 4 // tagAndTagSpacing
 
@@ -11,13 +5,13 @@ export default {
   name: 'ScrollPane',
   data() {
     return {
-      left: 0
+      // left: 0,
     }
   },
   computed: {
     scrollWrapper() {
       return this.$refs.scrollContainer.$refs.wrap
-    }
+    },
   },
   mounted() {
     this.scrollWrapper.addEventListener('scroll', this.emitScroll, true)
@@ -71,21 +65,35 @@ export default {
           $scrollWrapper.scrollLeft = beforePrevTagOffsetLeft
         }
       }
-    }
-  }
+    },
+  },
 }
 </script>
 
+<template>
+  <el-scrollbar
+    ref="scrollContainer"
+    :vertical="false"
+    class="scroll-container"
+    @wheel.native.prevent="handleScroll"
+  >
+    <slot />
+  </el-scrollbar>
+</template>
+
 <style lang="scss" scoped>
 .scroll-container {
-  white-space: nowrap;
   position: relative;
-  overflow: hidden;
   width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+
   ::v-deep {
+
     .el-scrollbar__bar {
-      bottom: 0px;
+      bottom: 0;
     }
+
     .el-scrollbar__wrap {
       height: 49px;
     }

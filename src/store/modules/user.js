@@ -7,7 +7,7 @@ const state = {
   name: '',
   avatar: '',
   introduction: '',
-  roles: []
+  roles: [],
 }
 
 const mutations = {
@@ -25,7 +25,7 @@ const mutations = {
   },
   SET_ROLES: (state, roles) => {
     state.roles = roles
-  }
+  },
 }
 
 const actions = {
@@ -33,12 +33,12 @@ const actions = {
   login({ commit }, userInfo) {
     const { username, password } = userInfo
     return new Promise((resolve, reject) => {
-      login({ username: username.trim(), password: password }).then(response => {
+      login({ username: username.trim(), password }).then((response) => {
         const { data } = response
         commit('SET_TOKEN', data.token)
         setToken(data.token)
         resolve()
-      }).catch(error => {
+      }).catch((error) => {
         reject(error)
       })
     })
@@ -47,7 +47,7 @@ const actions = {
   // get user info
   getInfo({ commit, state }) {
     return new Promise((resolve, reject) => {
-      getInfo(state.token).then(response => {
+      getInfo(state.token).then((response) => {
         const { data } = response
 
         if (!data) {
@@ -66,7 +66,7 @@ const actions = {
         commit('SET_AVATAR', avatar)
         commit('SET_INTRODUCTION', introduction)
         resolve(data)
-      }).catch(error => {
+      }).catch((error) => {
         reject(error)
       })
     })
@@ -86,7 +86,7 @@ const actions = {
         dispatch('tagsView/delAllViews', null, { root: true })
 
         resolve()
-      }).catch(error => {
+      }).catch((error) => {
         reject(error)
       })
     })
@@ -94,7 +94,7 @@ const actions = {
 
   // remove token
   resetToken({ commit }) {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       commit('SET_TOKEN', '')
       commit('SET_ROLES', [])
       removeToken()
@@ -104,7 +104,7 @@ const actions = {
 
   // dynamically modify permissions
   async changeRoles({ commit, dispatch }, role) {
-    const token = role + '-token'
+    const token = `${role}-token`
 
     commit('SET_TOKEN', token)
     setToken(token)
@@ -120,12 +120,12 @@ const actions = {
 
     // reset visited views and cached views
     dispatch('tagsView/delAllViews', null, { root: true })
-  }
+  },
 }
 
 export default {
   namespaced: true,
   state,
   mutations,
-  actions
+  actions,
 }

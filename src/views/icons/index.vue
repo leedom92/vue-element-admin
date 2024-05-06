@@ -1,3 +1,30 @@
+<script>
+import svgIcons from './svg-icons'
+import elementIcons from './element-icons'
+import clipboard from '@/utils/clipboard'
+
+export default {
+  name: 'Icons',
+  data() {
+    return {
+      svgIcons,
+      elementIcons,
+    }
+  },
+  methods: {
+    generateIconCode(symbol) {
+      return `<svg-icon icon-class="${symbol}" />`
+    },
+    generateElementIconCode(symbol) {
+      return `<i class="el-icon-${symbol}" />`
+    },
+    handleClipboard(text, event) {
+      clipboard(text, event)
+    },
+  },
+}
+</script>
+
 <template>
   <div class="icons-container">
     <aside>
@@ -38,33 +65,6 @@
     </el-tabs>
   </div>
 </template>
-
-<script>
-import clipboard from '@/utils/clipboard'
-import svgIcons from './svg-icons'
-import elementIcons from './element-icons'
-
-export default {
-  name: 'Icons',
-  data() {
-    return {
-      svgIcons,
-      elementIcons
-    }
-  },
-  methods: {
-    generateIconCode(symbol) {
-      return `<svg-icon icon-class="${symbol}" />`
-    },
-    generateElementIconCode(symbol) {
-      return `<i class="el-icon-${symbol}" />`
-    },
-    handleClipboard(text, event) {
-      clipboard(text, event)
-    }
-  }
-}
-</script>
 
 <style lang="scss" scoped>
 .icons-container {

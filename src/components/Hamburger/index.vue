@@ -1,3 +1,20 @@
+<script>
+export default {
+  name: 'Hamburger',
+  props: {
+    isActive: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  methods: {
+    toggleClick() {
+      this.$emit('toggleClick')
+    },
+  },
+}
+</script>
+
 <template>
   <div style="padding: 0 15px;" @click="toggleClick">
     <svg
@@ -13,29 +30,12 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'Hamburger',
-  props: {
-    isActive: {
-      type: Boolean,
-      default: false
-    }
-  },
-  methods: {
-    toggleClick() {
-      this.$emit('toggleClick')
-    }
-  }
-}
-</script>
-
 <style scoped>
 .hamburger {
   display: inline-block;
-  vertical-align: middle;
   width: 20px;
   height: 20px;
+  vertical-align: middle;
 }
 
 .hamburger.is-active {

@@ -9,15 +9,15 @@ const tableRouter = {
   name: 'Table',
   meta: {
     title: 'Table',
-    icon: 'table'
+    icon: 'table',
   },
   children: [
     {
       path: 'complex-table',
       component: () => import('@/views/table/complex-table'),
       name: 'ComplexTable',
-      meta: { title: 'Complex Table' }
-    }
-  ]
+      meta: { title: 'Complex Table' },
+    },
+  ],
 }
 export default tableRouter

@@ -1,3 +1,13 @@
+<script>
+import ErrorA from './components/ErrorTestA'
+import ErrorB from './components/ErrorTestB'
+
+export default {
+  name: 'ErrorLog',
+  components: { ErrorA, ErrorB },
+}
+</script>
+
 <template>
   <div class="errPage-container">
     <ErrorA />
@@ -14,16 +24,6 @@
     </a>
   </div>
 </template>
-
-<script>
-import ErrorA from './components/ErrorTestA'
-import ErrorB from './components/ErrorTestB'
-
-export default {
-  name: 'ErrorLog',
-  components: { ErrorA, ErrorB }
-}
-</script>
 
 <style scoped>
   .errPage-container {

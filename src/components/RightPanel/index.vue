@@ -1,17 +1,3 @@
-<template>
-  <div ref="rightPanel" :class="{show:show}" class="rightPanel-container">
-    <div class="rightPanel-background" />
-    <div class="rightPanel">
-      <div class="handle-button" :style="{'top':buttonTop+'px','background-color':theme}" @click="show=!show">
-        <i :class="show?'el-icon-close':'el-icon-setting'" />
-      </div>
-      <div class="rightPanel-items">
-        <slot />
-      </div>
-    </div>
-  </div>
-</template>
-
 <script>
 import { addClass, removeClass } from '@/utils'
 
@@ -20,22 +6,22 @@ export default {
   props: {
     clickNotClose: {
       default: false,
-      type: Boolean
+      type: Boolean,
     },
     buttonTop: {
       default: 250,
-      type: Number
-    }
+      type: Number,
+    },
   },
   data() {
     return {
-      show: false
+      show: false,
     }
   },
   computed: {
     theme() {
       return this.$store.state.settings.theme
-    }
+    },
   },
   watch: {
     show(value) {
@@ -47,7 +33,7 @@ export default {
       } else {
         removeClass(document.body, 'showRightPanel')
       }
-    }
+    },
   },
   mounted() {
     this.insertToBody()
@@ -71,16 +57,30 @@ export default {
       const elx = this.$refs.rightPanel
       const body = document.querySelector('body')
       body.insertBefore(elx, body.firstChild)
-    }
-  }
+    },
+  },
 }
 </script>
 
+<template>
+  <div ref="rightPanel" :class="{show:show}" class="rightPanel-container">
+    <div class="rightPanel-background" />
+    <div class="rightPanel">
+      <div class="handle-button" :style="{'top':buttonTop + 'px','background-color':theme}" @click="show = !show">
+        <i :class="show ? 'el-icon-close' : 'el-icon-setting'" />
+      </div>
+      <div class="rightPanel-items">
+        <slot />
+      </div>
+    </div>
+  </div>
+</template>
+
 <style>
 .showRightPanel {
-  overflow: hidden;
   position: relative;
   width: calc(100% - 15px);
+  overflow: hidden;
 }
 </style>
 
@@ -89,34 +89,34 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
-  opacity: 0;
-  transition: opacity .3s cubic-bezier(.7, .3, .1, 1);
-  background: rgba(0, 0, 0, .2);
   z-index: -1;
+  background: rgb(0 0 0 / 20%);
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.7, 0.3, 0.1, 1);
 }
 
 .rightPanel {
-  width: 100%;
-  max-width: 260px;
-  height: 100vh;
   position: fixed;
   top: 0;
   right: 0;
-  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, .05);
-  transition: all .25s cubic-bezier(.7, .3, .1, 1);
-  transform: translate(100%);
-  background: #fff;
   z-index: 40000;
+  width: 100%;
+  max-width: 260px;
+  height: 100vh;
+  background: #fff;
+  box-shadow: 0 0 15px 0 rgb(0 0 0 / 5%);
+  transition: all 0.25s cubic-bezier(0.7, 0.3, 0.1, 1);
+  transform: translate(100%);
 }
 
 .show {
-  transition: all .3s cubic-bezier(.7, .3, .1, 1);
+  transition: all 0.3s cubic-bezier(0.7, 0.3, 0.1, 1);
 
   .rightPanel-background {
     z-index: 20000;
-    opacity: 1;
     width: 100%;
     height: 100%;
+    opacity: 1;
   }
 
   .rightPanel {
@@ -125,18 +125,19 @@ export default {
 }
 
 .handle-button {
-  width: 48px;
-  height: 48px;
   position: absolute;
   left: -48px;
-  text-align: center;
-  font-size: 24px;
-  border-radius: 6px 0 0 6px !important;
   z-index: 0;
+  width: 48px;
+  height: 48px;
+  font-size: 24px;
+  line-height: 48px;
+  color: #fff;
+  text-align: center;
   pointer-events: auto;
   cursor: pointer;
-  color: #fff;
-  line-height: 48px;
+  border-radius: 6px 0 0 6px !important;
+
   i {
     font-size: 24px;
     line-height: 48px;

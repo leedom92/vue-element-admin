@@ -1,3 +1,31 @@
+<script>
+import SwitchRoles from './components/SwitchRoles'
+
+import permission from '@/directive/permission/index.js'
+
+// 权限判断指令
+import checkPermission from '@/utils/permission'
+
+// 权限判断函数
+
+export default {
+  name: 'DirectivePermission',
+  components: { SwitchRoles },
+  directives: { permission },
+  data() {
+    return {
+      key: 1, // 为了能每次切换权限的时候重新初始化指令
+    }
+  },
+  methods: {
+    checkPermission,
+    handleRolesChange() {
+      this.key++
+    },
+  },
+}
+</script>
+
 <template>
   <div class="app-container">
     <switch-roles @change="handleRolesChange" />
@@ -34,7 +62,7 @@
       </div>
     </div>
 
-    <div :key="'checkPermission'+key" style="margin-top: 60px;">
+    <div :key="'checkPermission' + key" style="margin-top: 60px;">
       <aside>
         In some cases, using v-permission will have no effect. For example: Element-UI's Tab component or el-table-column and other scenes that dynamically render dom. You can only do this with v-if.
         <br> e.g.
@@ -66,29 +94,6 @@
   </div>
 </template>
 
-<script>
-import permission from '@/directive/permission/index.js' // 权限判断指令
-import checkPermission from '@/utils/permission' // 权限判断函数
-import SwitchRoles from './components/SwitchRoles'
-
-export default {
-  name: 'DirectivePermission',
-  components: { SwitchRoles },
-  directives: { permission },
-  data() {
-    return {
-      key: 1 // 为了能每次切换权限的时候重新初始化指令
-    }
-  },
-  methods: {
-    checkPermission,
-    handleRolesChange() {
-      this.key++
-    }
-  }
-}
-</script>
-
 <style lang="scss" scoped>
 .app-container {
 
@@ -111,4 +116,3 @@ export default {
   }
 }
 </style>
-

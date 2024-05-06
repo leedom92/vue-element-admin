@@ -3,10 +3,10 @@ export default {
   created() {
     const { params, query } = this.$route
     const { path } = params
-    this.$router.replace({ path: '/' + path, query }).catch(() => {})
+    this.$router.replace({ path: `/${path}`, query }).catch(() => {})
   },
-  render: function(h) {
+  render(h) {
     return h() // avoid warning message
-  }
+  },
 }
 </script>
