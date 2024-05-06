@@ -78,20 +78,20 @@ export default {
   }
 
   .icon-item {
-    margin: 20px;
-    height: 85px;
-    text-align: center;
-    width: 100px;
     float: left;
+    width: 100px;
+    height: 85px;
+    margin: 20px;
     font-size: 30px;
     color: #24292e;
+    text-align: center;
     cursor: pointer;
   }
 
   span {
     display: block;
-    font-size: 16px;
     margin-top: 10px;
+    font-size: 16px;
   }
 
   .disabled {

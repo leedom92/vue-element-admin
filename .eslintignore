@@ -4,3 +4,4 @@ public
 dist
 *.md
 LICENSE
+package.json

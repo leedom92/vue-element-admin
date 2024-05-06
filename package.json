@@ -8,7 +8,9 @@
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "preview": "node build/index.js --preview",
-    "lint": "eslint --ext .js,.vue src",
+    "lint:es": "eslint --ext .js,.vue src",
+    "lint:style": "stylelint ./src/**/*.{css,scss,vue}",
+    "lint": "pnpm lint:es && pnpm lint:style",
     "svgo": "svgo -f src/icons/svg --config=src/icons/svgo.yml",
     "prepare": "husky"
   },
@@ -31,10 +33,11 @@
   "devDependencies": {
     "@babel/core": "^7.24.5",
     "@babel/eslint-parser": "7.24.5",
+    "@leedomjs/stylelint-config": "^0.3.0",
     "@vue/cli-plugin-babel": "5.0.8",
     "@vue/cli-plugin-eslint": "5.0.8",
     "@vue/cli-service": "5.0.8",
-    "autoprefixer": "10.4.19",
+    "autoprefixer": "^10.4.19",
     "babel-plugin-dynamic-import-node": "2.3.3",
     "body-parser": "^1.20.2",
     "chalk": "2.4.2",
@@ -42,13 +45,14 @@
     "connect": "3.6.6",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^9.25.0",
-    "husky": "9.0.11",
-    "lint-staged": "15.2.2",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
     "mockjs": "^1.1.0",
     "runjs": "4.4.2",
     "sass": "1.26.2",
     "sass-loader": "8.0.2",
     "serve-static": "1.15.0",
+    "stylelint": "^16.5.0",
     "svg-sprite-loader": "6.0.11",
     "svgo": "3.2.0"
   },
@@ -57,7 +61,7 @@
     "last 2 versions"
   ],
   "bugs": {
-    "url": "https://github.com/PanJiaChen/vue-element-admin/issues"
+    "url": "https://github.com/leedom92/vue-element-admin/issues"
   },
   "engines": {
     "node": ">=8.9",
@@ -74,10 +78,11 @@
   ],
   "license": "MIT",
   "lint-staged": {
-    "src/**/*.{js,vue}": "eslint --fix"
+    "src/**/*.{js,vue}": "eslint --fix",
+    "src/**/*.{css,scss,vue}": "stylelint --fix"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PanJiaChen/vue-element-admin.git"
+    "url": "git+https://github.com/leedom92/vue-element-admin.git"
   }
 }

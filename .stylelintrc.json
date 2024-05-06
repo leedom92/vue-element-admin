@@ -1,0 +1,19 @@
+{
+  "extends": "@leedomjs/stylelint-config",
+  "rules": {
+    "at-rule-no-unknown": null,
+    "declaration-block-single-line-max-declarations": null,
+    "function-no-unknown": null,
+    "number-max-precision": null,
+    "selector-pseudo-class-no-unknown": null,
+    "selector-pseudo-element-no-unknown": null,
+    "scss/at-else-closing-brace-space-after": null,
+    "scss/at-else-closing-brace-newline-after": null,
+    "scss/at-else-empty-line-before": null,
+    "scss/at-if-closing-brace-newline-after": null,
+    "scss/at-if-closing-brace-space-after": null,
+    "scss/at-mixin-pattern": null,
+    "scss/double-slash-comment-whitespace-inside": null,
+    "@stylistic/property-case": null
+  }
+}

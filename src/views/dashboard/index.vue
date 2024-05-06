@@ -34,10 +34,10 @@ export default {
 
 <style lang="scss" scoped>
 .dashboard-container {
-  height: calc(100vh - 50px);
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  height: calc(100vh - 50px);
   font-size: 3rem;
   color: #555;
 }
