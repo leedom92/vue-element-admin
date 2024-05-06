@@ -1,8 +1,8 @@
 <template>
   <div class="dashboard-container">
     <div class="text-center">
-      <div>Welcome to {{ title }}</div>
-      <div>{{ time }}</div>
+      <div class="text-el-primary">Welcome to {{ title }}</div>
+      <div class="text-4xl pt-4 text-el-primary-3">{{ time }}</div>
     </div>
   </div>
 </template>

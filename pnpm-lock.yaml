@@ -58,6 +58,9 @@ devDependencies:
   '@leedomjs/stylelint-config':
     specifier: ^0.3.0
     version: 0.3.0(postcss-html@1.6.0)(postcss@8.4.38)(stylelint@16.5.0)(tailwindcss@3.4.3)
+  '@leedomjs/tailwindcss-preset':
+    specifier: ^0.2.0
+    version: 0.2.0(tailwindcss@3.4.3)
   '@vue/cli-plugin-babel':
     specifier: 5.0.8
     version: 5.0.8(@vue/cli-service@5.0.8)(core-js@3.37.0)(vue@2.7.16)
@@ -100,6 +103,9 @@ devDependencies:
   mockjs:
     specifier: ^1.1.0
     version: 1.1.0
+  postcss:
+    specifier: ^8.4.38
+    version: 8.4.38
   runjs:
     specifier: 4.4.2
     version: 4.4.2
@@ -121,6 +127,9 @@ devDependencies:
   svgo:
     specifier: 3.2.0
     version: 3.2.0
+  tailwindcss:
+    specifier: ^3.4.3
+    version: 3.4.3
 
 packages:
 
@@ -1624,6 +1633,32 @@ packages:
       - postcss
       - postcss-html
       - tailwindcss
+    dev: true
+
+  /@leedomjs/tailwindcss-color-preset@0.2.0(tailwindcss@3.4.3):
+    resolution: {integrity: sha512-dXnHUC/POpqhMr91ny7lDUc/tazAsJ4KxFXRyYt0q3P9s/5A4vT6Qp23bMHh3D+ZByYAMJRyA6oHIZfzWJLrMA==}
+    peerDependencies:
+      tailwindcss: '>=2.2.19'
+    dependencies:
+      tailwindcss: 3.4.3
+    dev: true
+
+  /@leedomjs/tailwindcss-miniprogram-preset@0.2.0(tailwindcss@3.4.3):
+    resolution: {integrity: sha512-0aR2rfTVQ02B7OJ/3RYhdxj9lQOrKVOwbzgd1sZCDMlK1jmlHeqHDoR5uE8yYt97m3VBh1JbsAhpqleMbELb1A==}
+    peerDependencies:
+      tailwindcss: '>=2.2.19'
+    dependencies:
+      tailwindcss: 3.4.3
+    dev: true
+
+  /@leedomjs/tailwindcss-preset@0.2.0(tailwindcss@3.4.3):
+    resolution: {integrity: sha512-Ftdl7uxS7iW8dzjWh5GyQxAqZ1nFmD/GbtKoTqM2NCSALJbI7Lxnorpywz+2ilPDcJhLhAzz2gi7AdHjQ6yQAQ==}
+    peerDependencies:
+      tailwindcss: '>=2.2.19'
+    dependencies:
+      '@leedomjs/tailwindcss-color-preset': 0.2.0(tailwindcss@3.4.3)
+      '@leedomjs/tailwindcss-miniprogram-preset': 0.2.0(tailwindcss@3.4.3)
+      tailwindcss: 3.4.3
     dev: true
 
   /@leichtgewicht/ip-codec@2.0.5:
