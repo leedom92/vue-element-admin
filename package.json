@@ -83,7 +83,7 @@
   "license": "MIT",
   "lint-staged": {
     "src/**/*.{js,vue}": "eslint --fix",
-    "src/**/*.{css,scss,vue}": "stylelint --fix"
+    "src/**/*.{css,scss,vue}": "stylelint --aei --fix"
   },
   "repository": {
     "type": "git",
