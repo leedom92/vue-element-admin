@@ -23,7 +23,7 @@ for (let i = 0; i < count; i++) {
     comment_disabled: true,
     pageviews: '@integer(300, 5000)',
     image_uri,
-    platforms: ['a-platform']
+    platforms: ['a-platform'],
   }))
 }
 
@@ -31,10 +31,10 @@ module.exports = [
   {
     url: '/vue-element-admin/article/list',
     type: 'get',
-    response: config => {
+    response: (config) => {
       const { importance, type, title, page = 1, limit = 20, sort } = config.query
 
-      let mockList = List.filter(item => {
+      let mockList = List.filter((item) => {
         if (importance && item.importance !== +importance) return false
         if (type && item.type !== type) return false
         if (title && item.title.indexOf(title) < 0) return false
@@ -51,66 +51,59 @@ module.exports = [
         code: 20000,
         data: {
           total: mockList.length,
-          items: pageList
-        }
+          items: pageList,
+        },
       }
-    }
+    },
   },
 
   {
     url: '/vue-element-admin/article/detail',
     type: 'get',
-    response: config => {
+    response: (config) => {
       const { id } = config.query
       for (const article of List) {
         if (article.id === +id) {
           return {
             code: 20000,
-            data: article
+            data: article,
           }
         }
       }
-    }
+    },
   },
 
   {
     url: '/vue-element-admin/article/pv',
     type: 'get',
-    response: _ => {
-      return {
-        code: 20000,
-        data: {
-          pvData: [
-            { key: 'PC', pv: 1024 },
-            { key: 'mobile', pv: 1024 },
-            { key: 'ios', pv: 1024 },
-            { key: 'android', pv: 1024 }
-          ]
-        }
-      }
-    }
+    response: _ => ({
+      code: 20000,
+      data: {
+        pvData: [
+          { key: 'PC', pv: 1024 },
+          { key: 'mobile', pv: 1024 },
+          { key: 'ios', pv: 1024 },
+          { key: 'android', pv: 1024 },
+        ],
+      },
+    }),
   },
 
   {
     url: '/vue-element-admin/article/create',
     type: 'post',
-    response: _ => {
-      return {
-        code: 20000,
-        data: 'success'
-      }
-    }
+    response: _ => ({
+      code: 20000,
+      data: 'success',
+    }),
   },
 
   {
     url: '/vue-element-admin/article/update',
     type: 'post',
-    response: _ => {
-      return {
-        code: 20000,
-        data: 'success'
-      }
-    }
-  }
+    response: _ => ({
+      code: 20000,
+      data: 'success',
+    }),
+  },
 ]
-
