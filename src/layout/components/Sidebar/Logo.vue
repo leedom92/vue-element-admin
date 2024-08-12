@@ -17,7 +17,7 @@ export default {
 </script>
 
 <template>
-  <div class="sidebar-logo-container" :class="{'collapse':collapse}">
+  <div class="sidebar-logo-container" :class="{'is-collapse':collapse}">
     <transition name="sidebarLogoFade">
       <router-link
         v-if="collapse"
@@ -78,7 +78,7 @@ export default {
     & .sidebar-title {
       display: inline-block;
       margin: 0;
-      font-family: Avenir, "Helvetica Neue", Arial, Helvetica, sans-serif;
+      font-family: Avenir, 'Helvetica Neue', Arial, Helvetica, sans-serif;
       font-size: 14px;
       font-weight: 600;
       line-height: 50px;
@@ -87,7 +87,7 @@ export default {
     }
   }
 
-  &.collapse {
+  &.is-collapse {
 
     .sidebar-logo {
       margin-right: 0;
