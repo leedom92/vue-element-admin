@@ -83,8 +83,12 @@ export default {
             .then(() => {
               this.$router.push({ path: this.redirect || '/', query: this.otherQuery })
               this.loading = false
+              this.$message({
+                type: 'success',
+                message: '登录成功!',
+              })
             })
-            .catch(() => {
+            .finally(() => {
               this.loading = false
             })
         } else {
@@ -186,6 +190,7 @@ export default {
 
       <el-button
         :loading="loading"
+        :disabled="loading"
         type="primary"
         style="width: 100%;margin-bottom: 30px;"
         @click.native.prevent="handleLogin"
