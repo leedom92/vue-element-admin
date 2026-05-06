@@ -491,3 +491,76 @@ export default {
     </el-dialog>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.filter-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  padding-bottom: 12px;
+
+  .filter-item {
+    margin-bottom: 0;
+  }
+
+  .el-button {
+    padding: 9px 20px;
+  }
+
+  .el-checkbox {
+    margin-left: 5px;
+  }
+}
+
+::v-deep .el-table {
+
+  th {
+    font-weight: 600;
+    color: #303133;
+    background-color: #fafafa;
+  }
+
+  td {
+    padding: 6px 0;
+  }
+
+  .link-type {
+    font-weight: 500;
+  }
+
+  .el-tag {
+    margin-left: 6px;
+  }
+}
+
+::v-deep .el-dialog {
+  border-radius: 6px;
+
+  .el-dialog__header {
+    padding: 20px 24px 14px;
+    border-bottom: 1px solid #e8e8e8;
+  }
+
+  .el-dialog__body {
+    padding: 24px;
+  }
+
+  .el-dialog__footer {
+    padding: 14px 24px 20px;
+    border-top: 1px solid #e8e8e8;
+  }
+}
+
+::v-deep .el-form {
+
+  .el-form-item {
+    margin-bottom: 20px;
+  }
+
+  .el-select,
+  .el-date-editor {
+    width: 100%;
+  }
+}
+</style>
